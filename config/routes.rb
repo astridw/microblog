@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'waves/index'
 
-  get 'waves/post'
+  post 'waves/post'
 
   root 'waves#index'
 

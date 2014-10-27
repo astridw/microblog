@@ -1,16 +1,9 @@
 class WavesController < ApplicationController
 
 
-before_action do
-    if session[:photon_id].present?
-    else
-      # redirect_to sign_in_path
-    end
-  end
-
 
   def index
-    current_photon = session[:photon_id]
+    current_photon = Photon.find(session[:photon_id])
     @photons = Photon.all
     @waves = current_photon.waves.order("created_at").reverse
     @wave = Wave.new
