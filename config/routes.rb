@@ -11,11 +11,11 @@ Rails.application.routes.draw do
 
   # get 'sessions/create_photon'
 
-  get "session/new" => "session#new", as: "sign_in"
-  post "session" => "session#create"
-  delete "session" => "session#signout", as: "sign_out"
-  get "signup" => "session#signup", as: :signup
-  post "signup" => "session#create_photon", as: :create_photon
+  get "session/new" => "sessions#new", as: "sign_in"
+  post "session" => "sessions#create"
+  delete "session" => "sessions#signout", as: "sign_out"
+  get "signup" => "sessions#signup", as: :signup
+  post "signup" => "sessions#create_photon", as: :create_photon
 
   get 'waves/index'
 

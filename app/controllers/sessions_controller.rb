@@ -26,12 +26,13 @@ class SessionsController < ApplicationController
 
   def create_photon
     @photon = Photon.new(params.require(:photon).permit(:photonname, :password,
-     :password_confirmation :photo_url))
+     :password_confirmation, :photo_url))
 
     if photon.save
       session[:photon_id] = @photon.id
       redirect_to root_path
     else
       render :signup
+    end
   end
 end
