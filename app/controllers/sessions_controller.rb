@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     photon = Photon.find_by photonname: photonname
     if photon.password == password
-      session[:photon_id] == photon_id
+      session[:photon_id] = photon_id
       redirect_to root_path
     else
       render :new
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def signout
-    sessions[:photon_id] == nil
+    sessions[:photon_id] = nil
     redirect_to root_path
   end
 
