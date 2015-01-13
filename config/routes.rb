@@ -1,30 +1,19 @@
 Rails.application.routes.draw do
   get 'profiles/show'
 
-  # get 'sessions/new'
-
-  # get 'sessions/create'
-
-  # get 'sessions/signout'
-
-  # get 'sessions/signup'
-
-  # get 'sessions/create_photon'
-
-  get "session/new" => "sessions#new", as: "sign_in"
-  post "session" => "sessions#create"
-  delete "session" => "sessions#signout", as: "sign_out"
-  get "signup" => "sessions#signup", as: :signup
-  post "signup" => "sessions#create_photon", as: :create_photon
-
-  get 'waves/index'
-
-  post 'waves/post'
-
   root 'waves#index'
+  post "waves" => "waves#post", as: "post_wave"
 
-  resources :waves
+  get 'sessions/new' => "sessions#new", as: "sign_in"
+  post "/sessions/new" => "sessions#create"
+  delete "sessions" => "sessions#signout", as: "sign_out"
+  get "signup" => "sessions#signup", as: :signup
+  post "signup" => "sessions#create_user", as: :create_user
 
+  get "user/:username" => "profiles#show", as: "profile"
+
+  post   'create_following'  =>  "profile#create_following",  as: "create_following"
+  delete 'destroy_following' =>  "profile#destroy_following", as: "destroy_following"
 
 
 

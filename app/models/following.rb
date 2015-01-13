@@ -1,4 +1,5 @@
 class Following < ActiveRecord::Base
-  belongs_to :photons
-  belongs_to :follower, class_name: 'Photon'
+  belongs_to :user
+  belongs_to :follower, class_name: 'User'
+
 end
