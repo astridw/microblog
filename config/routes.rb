@@ -1,21 +1,56 @@
 Rails.application.routes.draw do
   get 'profiles/show'
 
-  get 'sessions/new'
+  # get 'sessions/new'
 
-  get 'sessions/create'
+  # get 'sessions/create'
 
-  get 'sessions/signout'
+  # get 'sessions/signout'
 
-  get 'sessions/signup'
+  # get 'sessions/signup'
 
-  get 'sessions/create_photon'
+  # get 'sessions/create_photon'
+
+  get "session/new" => "session#new", as: "sign_in"
+  post "session" => "session#create"
+  delete "session" => "session#signout", as: "sign_out"
+  get "signup" => "session#signup", as: :signup
+  post "signup" => "session#create_photon", as: :create_photon
 
   get 'waves/index'
 
   post 'waves/post'
 
   root 'waves#index'
+
+  resources :waves
+
+
+
+
+  # get 'posts/new'
+  #
+  # get 'posts/edit'
+  #
+  # get 'profiles/show'
+  #
+  # #get 'session/create'
+  #
+  # root 'home#index'
+  #
+  # post "posts" => "home#new_post", as: "new_post"
+  #
+  #
+  # get "session/new" => "session#new", as: "sign_in"
+  # post "session" => "session#create"
+  # delete "session" => "session#signout", as: "sign_out"
+  # get "signup" => "session#signup", as: :signup
+  # post "signup" => "session#create_user", as: :create_user
+  #
+  # get "users/:name" => "profiles#show", as: "profile"
+  #
+  # resources :posts
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

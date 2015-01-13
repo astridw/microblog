@@ -3,7 +3,6 @@ class WavesController < ApplicationController
 
 
   def index
-    current_photon = Photon.find(session[:photon_id])
     @photons = Photon.all
     @waves = current_photon.waves.order("created_at").reverse
     @wave = Wave.new

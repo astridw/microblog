@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026191652) do
+ActiveRecord::Schema.define(version: 20150113014922) do
+
+  create_table "followings", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "photon_id"
+    t.integer  "follower_id"
+  end
 
   create_table "photons", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photonname"
+    t.string   "password"
+    t.string   "photo_url"
   end
 
   create_table "waves", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "photon_id"
+    t.string   "post"
   end
 
 end
